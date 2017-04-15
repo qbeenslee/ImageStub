@@ -4,13 +4,11 @@ android {
     compileSdkVersion Integer.valueOf("$COMPILE_SDK_VERSION")
     buildToolsVersion "$BUILD_TOOLS_VERSION"
 
-
     defaultConfig {
         minSdkVersion Integer.valueOf("$MIN_SDK_VERSION")
         targetSdkVersion Integer.valueOf("$TARGET_SDK_VERSION")
         versionCode 1
         versionName "1.0"
-
     }
     buildTypes {
         release {
@@ -22,6 +20,6 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:24.2.1'
-    //compile project(path: ':lib', configuration: 'picassoDebug')
+    testCompile 'junit:junit:4.12'
+    compile "com.android.support:appcompat-v7:$SUPPORT_VERSION"
 }

@@ -4,79 +4,38 @@ android {
     compileSdkVersion Integer.valueOf("$COMPILE_SDK_VERSION")
     buildToolsVersion "$BUILD_TOOLS_VERSION"
 
-
     defaultConfig {
         minSdkVersion Integer.valueOf("$MIN_SDK_VERSION")
         targetSdkVersion Integer.valueOf("$TARGET_SDK_VERSION")
-        versionCode 1
-        versionName "1.0"
-
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
+        versionCode Integer.valueOf("$MODULE_VERSION_CODE")
+        versionName "$MODULE_VERSION_NAME"
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-        debug {
-            minifyEnabled false
-        }
-    }
-
-    lintOptions {
-        abortOnError false
-        warning 'InvalidPackage'
-    }
-
-    publishNonDefault true
-    packageBuildConfig false
-
-    productFlavors {
-
-        /*easy {
-            //自行手写的图片加载框架
-        }*/
-
-        fresco {
-            //GIT:  https://github.com/facebook/fresco
-        }
-
-        glide {
-            //GIT:  https://github.com/bumptech/glide
-        }
-
-        picasso {
-            //GIT:  https://github.com/square/picasso
-        }
-
-        uil {
-            //GIT:  https://github.com/nostra13/Android-Universal-Image-Loader
-        }
-
-        volley {
-            //GIT:  https://android.googlesource.com/platform/frameworks/volley
-        }
     }
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile "com.android.support:appcompat-v7:$SUPPORT_VERSION"
+    testCompile 'junit:junit:4.12'
+
+    compile "com.android.support:support-v4:$SUPPORT_VERSION"
+
     //fresco
-    frescoCompile 'com.facebook.fresco:fresco:0.14.1'
+    compile 'com.facebook.fresco:fresco:0.12.0'
 
     //glide
-    glideCompile 'com.github.bumptech.glide:glide:3.7.0'
-    glideCompile "com.android.support:support-v4:$SUPPORT_VERSION"
+    compile 'com.github.bumptech.glide:glide:3.7.0'
 
     //picasso
-    picassoCompile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.squareup.picasso:picasso:2.5.2'
 
     //uil
-    uilCompile files('libs/universal-image-loader-1.9.5.jar')
+    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
 
     //volley
-    volleyCompile 'com.android.volley:volley:1.0.0'
-
+    compile 'com.android.volley:volley:1.0.0'
 }
